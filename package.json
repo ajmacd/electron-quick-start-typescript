@@ -20,7 +20,9 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^2.0.2",
+    "@types/electron-devtools-installer": "^2.0.3",
+    "electron": "2.0.3",
+    "electron-devtools-installer": "^2.2.4",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
   }
