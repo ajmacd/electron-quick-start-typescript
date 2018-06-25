@@ -1,9 +1,22 @@
 import { app, BrowserWindow } from "electron";
+import installExtension, { REDUX_DEVTOOLS } from "electron-devtools-installer";
 import * as path from "path";
 
 let mainWindow: Electron.BrowserWindow;
 
-function createWindow() {
+async function installExtensions() {
+  const extensions = [REDUX_DEVTOOLS];
+
+  await Promise.all(
+    extensions.map((extension) => installExtension(extension)
+    .then((name) => console.log(`Added Extension: ${name}`))
+    .catch((err) => console.error(`An error occurred: ${err}`)))
+  );
+}
+
+async function createWindow() {
+  await installExtensions();
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     height: 600,
